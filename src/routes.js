@@ -4,16 +4,16 @@ import { ChakraProvider } from "@chakra-ui/react";
 
 import { routes } from './utils/constants';
 import chakraTheme from './config/chakraTheme';
+import HomePage from './components/pages/home';
 import LoginPage from './components/pages/login';
 import SignupPage from './components/pages/signup';
-import { CookiesProvider } from 'react-cookie';
 
 
 const Routes = () => {
   return (
     <ChakraProvider theme={chakraTheme}>
-      <CookiesProvider />
       <BrowserRouter>
+        <Route exact path={routes.home} component={HomePage} />
         <Route exact path={routes.login} component={LoginPage} />
         <Route exact path={routes.signup} component={SignupPage} />
       </BrowserRouter>

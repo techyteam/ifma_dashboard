@@ -3,6 +3,7 @@ export const TOKEN_KEY = 'token';
 
 // APP ROUTES
 export const routes = {
+  home: '/',
   login: '/login',
   signup: '/signup',
 };
@@ -17,12 +18,12 @@ export const reduxInitialStates = {
 };
 
 // API constants
-export const baseURL = 'https://ifmanigeria.herokuapp.com/api';
+export const baseURL = 'https://ifmanigeria.herokuapp.com/api/v1';
 
 // error messages
 export const REQUIRED_VALUE_ERROR = 'Value is required';
 export const INVALID_EMAIL_ERROR = 'Invalid email address';
-export const INVALID_PASSWORD_ERROR = 'Password must be at least six character';
+export const INVALID_PASSWORD_ERROR = 'Password must be at least eight characters long';
 
 // Redux types
 export const LOGIN_REQUEST = 'LOGIN_REQUEST';
