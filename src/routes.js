@@ -7,6 +7,7 @@ import chakraTheme from './config/chakraTheme';
 import HomePage from './components/pages/home';
 import LoginPage from './components/pages/login';
 import SignupPage from './components/pages/signup';
+import AboutUsPage from './components/pages/about-us';
 
 
 const Routes = () => {
@@ -16,6 +17,7 @@ const Routes = () => {
         <Route exact path={routes.home} component={HomePage} />
         <Route exact path={routes.login} component={LoginPage} />
         <Route exact path={routes.signup} component={SignupPage} />
+        <Route exact path={routes.aboutUs} component={AboutUsPage} />
       </BrowserRouter>
     </ChakraProvider>
   );

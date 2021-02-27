@@ -13,7 +13,7 @@ import PIC3 from '../../../assets/img/portfolio/pic3.jpeg';
 
 
 const HomepagePortfolioSection = () => {
-  const [activeFilter, setActiveFilter] = useState(0);
+  const [activeFilter, setActiveFilter] = useState('*');
   return (
     <section id="portfolio" className="portfolio">
       {/* <!-- ======= Portfolio Section ======= --> */}
@@ -52,14 +52,10 @@ const HomepagePortfolioSection = () => {
                       style={{
                         marginLeft: index === 0 ? '0px' : '10px',
                       }}
-                      className={activeFilter === index ? activeClass : ''}
+                      className={selector === activeFilter ? activeClass : ''}
                       onClick={({target}) => {
                         const { dataset: { filter } } = target;
-                        const nextSibling = target.closest('.row').nextSibling;
-                        target.parentNode.querySelector(`.${activeClass}`).classList.toggle(activeClass);
-                        target.classList.toggle(activeClass);
-                        Array.from(nextSibling.querySelectorAll('[class*="filter-"]')).forEach(el => el.style.display = 'none');
-                        Array.from(nextSibling.querySelectorAll(filter)).forEach(el => el.style.display = 'block');
+                        setActiveFilter(filter);
                       }}
                     >
                       {text}
@@ -76,96 +72,103 @@ const HomepagePortfolioSection = () => {
         </ScrollAnimation>
 
         <ScrollAnimation className="row portfolio-container" animateIn="fadeInUp" animateOnce={true}>
+          {
+            [
 
-          <div className="col-lg-4 col-md-6 portfolio-item filter-app">
-            <img src={FMD01} className="img-fluid" alt="" />
-            <div className="portfolio-info">
-              <h4>App 1</h4>
-              <p>App</p>
-              <a href={FMD01} data-gall="portfolioGallery" className="venobox preview-link" title="App 1"><i className="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a>
-            </div>
-          </div>
+              <div className="col-lg-4 col-md-6 portfolio-item filter-app">
+                <img src={FMD01} className="img-fluid" alt="" />
+                <div className="portfolio-info">
+                  <h4>App 1</h4>
+                  <p>App</p>
+                  <a href={FMD01} data-gall="portfolioGallery" className="venobox preview-link" title="App 1"><i className="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a>
+                </div>
+              </div>,
 
-          <div className="col-lg-4 col-md-6 portfolio-item filter-web">
-            <img src={EVS} className="img-fluid" alt="" />
-            <div className="portfolio-info">
-              <h4>Web 3</h4>
-              <p>Web</p>
-              <a href={EVS} data-gall="portfolioGallery" className="venobox preview-link" title="Web 3"><i className="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a>
-            </div>
-          </div>
+              <div className="col-lg-4 col-md-6 portfolio-item filter-web">
+                <img src={EVS} className="img-fluid" alt="" />
+                <div className="portfolio-info">
+                  <h4>Web 3</h4>
+                  <p>Web</p>
+                  <a href={EVS} data-gall="portfolioGallery" className="venobox preview-link" title="Web 3"><i className="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a>
+                </div>
+              </div>,
 
-          <div className="col-lg-4 col-md-6 portfolio-item filter-app">
-            <img src={FMD02} className="img-fluid" alt="" />
-            <div className="portfolio-info">
-              <h4>App 2</h4>
-              <p>App</p>
-              <a href={FMD02} data-gall="portfolioGallery" className="venobox preview-link" title="App 2"><i className="bx bx-plus"></i></a>
-              {/* <!-- <a href="portfolio-details.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a> --> */}
-            </div>
-          </div>
+              <div className="col-lg-4 col-md-6 portfolio-item filter-app">
+                <img src={FMD02} className="img-fluid" alt="" />
+                <div className="portfolio-info">
+                  <h4>App 2</h4>
+                  <p>App</p>
+                  <a href={FMD02} data-gall="portfolioGallery" className="venobox preview-link" title="App 2"><i className="bx bx-plus"></i></a>
+                  {/* <!-- <a href="portfolio-details.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a> --> */}
+                </div>
+              </div>,
 
-          <div className="col-lg-4 col-md-6 portfolio-item filter-card">
-            <img src={PIC2} className="img-fluid" alt="" />
-            <div className="portfolio-info">
-              <h4>Card 2</h4>
-              <p>Card</p>
-              <a href={PIC2} data-gall="portfolioGallery" className="venobox preview-link" title="Card 2"><i className="bx bx-plus"></i></a>
-              {/* <!-- <a href="portfolio-details.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a> --> */}
-            </div>
-          </div>
+              <div className="col-lg-4 col-md-6 portfolio-item filter-card">
+                <img src={PIC2} className="img-fluid" alt="" />
+                <div className="portfolio-info">
+                  <h4>Card 2</h4>
+                  <p>Card</p>
+                  <a href={PIC2} data-gall="portfolioGallery" className="venobox preview-link" title="Card 2"><i className="bx bx-plus"></i></a>
+                  {/* <!-- <a href="portfolio-details.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a> --> */}
+                </div>
+              </div>,
 
-          <div className="col-lg-4 col-md-6 portfolio-item filter-web">
-            <img src={EVS7289} className="img-fluid" alt="" />
-            <div className="portfolio-info">
-              <h4>Web 2</h4>
-              <p>Web</p>
-              <a href={EVS7289} data-gall="portfolioGallery" className="venobox preview-link" title="Web 2"><i className="bx bx-plus"></i></a>
-              {/* <!-- <a href="portfolio-details.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a> --> */}
-            </div>
-          </div>
+              <div className="col-lg-4 col-md-6 portfolio-item filter-web">
+                <img src={EVS7289} className="img-fluid" alt="" />
+                <div className="portfolio-info">
+                  <h4>Web 2</h4>
+                  <p>Web</p>
+                  <a href={EVS7289} data-gall="portfolioGallery" className="venobox preview-link" title="Web 2"><i className="bx bx-plus"></i></a>
+                  {/* <!-- <a href="portfolio-details.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a> --> */}
+                </div>
+              </div>,
 
-          <div className="col-lg-4 col-md-6 portfolio-item filter-app">
-            <img src={FMD03} className="img-fluid" alt="" />
-            <div className="portfolio-info">
-              <h4>App 3</h4>
-              <p>App</p>
-              <a href={FMD03} data-gall="portfolioGallery" className="venobox preview-link" title="App 3"><i className="bx bx-plus"></i></a>
-              {/* <!-- <a href="portfolio-details.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a> --> */}
-            </div>
-          </div>
+              <div className="col-lg-4 col-md-6 portfolio-item filter-app">
+                <img src={FMD03} className="img-fluid" alt="" />
+                <div className="portfolio-info">
+                  <h4>App 3</h4>
+                  <p>App</p>
+                  <a href={FMD03} data-gall="portfolioGallery" className="venobox preview-link" title="App 3"><i className="bx bx-plus"></i></a>
+                  {/* <!-- <a href="portfolio-details.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a> --> */}
+                </div>
+              </div>,
 
-          <div className="col-lg-4 col-md-6 portfolio-item filter-card">
-            <img src={PIC1} className="img-fluid" alt="" />
-            <div className="portfolio-info">
-              <h4>Card 1</h4>
-              <p>Card</p>
-              <a href={PIC1} data-gall="portfolioGallery" className="venobox preview-link" title="Card 1"><i className="bx bx-plus"></i></a>
-              {/* <!-- <a href="portfolio-details.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a> --> */}
-            </div>
-          </div>
+              <div className="col-lg-4 col-md-6 portfolio-item filter-card">
+                <img src={PIC1} className="img-fluid" alt="" />
+                <div className="portfolio-info">
+                  <h4>Card 1</h4>
+                  <p>Card</p>
+                  <a href={PIC1} data-gall="portfolioGallery" className="venobox preview-link" title="Card 1"><i className="bx bx-plus"></i></a>
+                  {/* <!-- <a href="portfolio-details.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a> --> */}
+                </div>
+              </div>,
 
-          <div className="col-lg-4 col-md-6 portfolio-item filter-card">
-            <img src={PIC3} className="img-fluid" alt="" />
-            <div className="portfolio-info">
-              <h4>Card 3</h4>
-              <p>Card</p>
-              <a href={PIC3} data-gall="portfolioGallery" className="venobox preview-link" title="Card 3"><i className="bx bx-plus"></i></a>
-              {/* <!-- <a href="portfolio-details.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a> --> */}
-            </div>
-          </div>
+              <div className="col-lg-4 col-md-6 portfolio-item filter-card">
+                <img src={PIC3} className="img-fluid" alt="" />
+                <div className="portfolio-info">
+                  <h4>Card 3</h4>
+                  <p>Card</p>
+                  <a href={PIC3} data-gall="portfolioGallery" className="venobox preview-link" title="Card 3"><i className="bx bx-plus"></i></a>
+                  {/* <!-- <a href="portfolio-details.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a> --> */}
+                </div>
+              </div>,
 
-          <div className="col-lg-4 col-md-6 portfolio-item filter-web">
-            <img src={EVS6945} className="img-fluid" alt="" />
-            <div className="portfolio-info">
-              <h4>Web 3</h4>
-              <p>Web</p>
-              <a href={EVS6945} data-gall="portfolioGallery" className="venobox preview-link" title="Web 3"><i className="bx bx-plus"></i></a>
-              {/* <!-- <a href="portfolio-details.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a> --> */}
-            </div>
-          </div>
+              <div className="col-lg-4 col-md-6 portfolio-item filter-web">
+                <img src={EVS6945} className="img-fluid" alt="" />
+                <div className="portfolio-info">
+                  <h4>Web 3</h4>
+                  <p>Web</p>
+                  <a href={EVS6945} data-gall="portfolioGallery" className="venobox preview-link" title="Web 3"><i className="bx bx-plus"></i></a>
+                  {/* <!-- <a href="portfolio-details.html" className="details-link" title="More Details"><i className="bx bx-link"></i></a> --> */}
+                </div>
+              </div>
+            ].filter(el => {
+              console.log(el.props.className, activeFilter);
+              return activeFilter === '*' ? true : el.props.className.includes(activeFilter.substr(1));
+            })
+          }
 
         </ScrollAnimation>
 
