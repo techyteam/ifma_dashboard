@@ -1,0 +1,24 @@
+import React from 'react';
+import { BrowserRouter, Route } from "react-router-dom";
+import { ChakraProvider } from "@chakra-ui/react";
+
+import { routes } from './utils/constants';
+import chakraTheme from './config/chakraTheme';
+import HomePage from './components/pages/home';
+import LoginPage from './components/pages/login';
+import SignupPage from './components/pages/signup';
+
+
+const Routes = () => {
+  return (
+    <ChakraProvider theme={chakraTheme}>
+      <BrowserRouter>
+        <Route exact path={routes.home} component={HomePage} />
+        <Route exact path={routes.login} component={LoginPage} />
+        <Route exact path={routes.signup} component={SignupPage} />
+      </BrowserRouter>
+    </ChakraProvider>
+  );
+}
+
+export default Routes;
