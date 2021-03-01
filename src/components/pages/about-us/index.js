@@ -1,6 +1,7 @@
 import { Box } from '@chakra-ui/react';
 import React from 'react';
 import AboutUsTeamSection from '../../utilities/about-us/about-us-team-section';
+import Breadcrumbs from '../../utilities/breadcrumbs';
 import HomepageAboutSection from '../../utilities/homepage/homepage-about-section';
 import HomepageSkillsSection from '../../utilities/homepage/homepage-skills-section';
 
@@ -8,21 +9,12 @@ import HomepageSkillsSection from '../../utilities/homepage/homepage-skills-sect
 const AboutUsPage = () => {
   return (
     <Box as='main' id='main'>
-      {/* <!-- ======= Breadcrumbs ======= --> */}
-      <section id="breadcrumbs" className="breadcrumbs">
-        <div className="container">
-
-          <div className="d-flex justify-content-between align-items-center">
-            <h2>About</h2>
-            <ol>
-              <li><a href="index.html">Home</a></li>
-              <li>About</li>
-            </ol>
-          </div>
-
-        </div>
-      </section>
-      {/* <!-- End Breadcrumbs --> */}
+      <Breadcrumbs
+        currentPage='About'
+        routes={{
+          Home: '/'
+        }}
+      />
       <HomepageAboutSection />
       <AboutUsTeamSection />
       <HomepageSkillsSection />

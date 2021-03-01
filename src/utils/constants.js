@@ -7,6 +7,7 @@ export const routes = {
   login: '/login',
   signup: '/signup',
   aboutUs: '/about',
+  events: '/events',
 };
 
 // initial states
