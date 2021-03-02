@@ -9,6 +9,7 @@ import LoginPage from './components/pages/login';
 import SignupPage from './components/pages/signup';
 import AboutUsPage from './components/pages/about-us';
 import EventsPage from './components/pages/events';
+import ContactUsPage from './components/pages/contact-us';
 
 
 const Routes = () => {
@@ -20,6 +21,7 @@ const Routes = () => {
         <Route exact path={routes.signup} component={SignupPage} />
         <Route exact path={routes.aboutUs} component={AboutUsPage} />
         <Route exact path={routes.events} component={EventsPage} />
+        <Route exact path={routes.contactUs} component={ContactUsPage} />
       </BrowserRouter>
     </ChakraProvider>
   );

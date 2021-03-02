@@ -8,6 +8,7 @@ export const routes = {
   signup: '/signup',
   aboutUs: '/about',
   events: '/events',
+  contactUs: '/contact',
 };
 
 // initial states
