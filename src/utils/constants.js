@@ -4,11 +4,13 @@ export const TOKEN_KEY = 'token';
 // APP ROUTES
 export const routes = {
   home: '/',
+  blog: '/blog',
   login: '/login',
   signup: '/signup',
   aboutUs: '/about',
   events: '/events',
   contactUs: '/contact',
+  singleBlog: '/blog-single',
 };
 
 // initial states
