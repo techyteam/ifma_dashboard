@@ -10,6 +10,7 @@ export const routes = {
   aboutUs: '/about',
   events: '/events',
   contactUs: '/contact',
+  singleBlog: '/blog-single',
 };
 
 // initial states
